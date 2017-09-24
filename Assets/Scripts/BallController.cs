@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour {
 
     void FixedUpdate() {
         if (transform.position.z < -13) { 
-            transform.position = new Vector3(-1, 1.5f, 5f);
+            transform.position = new Vector3(2.9f, 0f, 0.5f);
             rb.velocity = Vector3.zero;
         }
     }
