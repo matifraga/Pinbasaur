@@ -13,16 +13,14 @@ public class FlipperController : MonoBehaviour {
         restPosition = 0f;
         hinge = GetComponent<HingeJoint>();
         hinge.useSpring = true;
-        spring = new JointSpring();
-        spring.damper = FLIPPER_DAMPER;
-        spring.spring = HIT_POWER;
+        spring = new JointSpring {
+            damper = FLIPPER_DAMPER,
+            spring = HIT_POWER
+        };
         hinge.useLimits = true;
-
     }
 
     private void FixedUpdate() {
-
-
         if (Input.GetKey(KeyCode.LeftArrow)) {
             spring.targetPosition = -PRESSED_POSITION;
         } else {
@@ -32,7 +30,6 @@ public class FlipperController : MonoBehaviour {
                 spring.targetPosition = restPosition;
             }
         }
-
         hinge.spring = spring;
     }
 }

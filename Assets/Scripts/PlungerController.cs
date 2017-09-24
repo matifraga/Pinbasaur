@@ -1,55 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlungerController : MonoBehaviour {
 
     public float power;
-    public int deltaPower = 50;
-    public float minPower = 0f;
-    public float maxPower = 100f;
+    static int DELTA_POWER = 50;
+    static float MIN_POWER = 0f;
+    static float MAX_POWER = 100f;
     public Slider powerSlider;
-    List<Rigidbody> ballList;
+    Rigidbody ball;
     bool ballReady;
 
-	void Start () {
-        powerSlider.minValue = minPower;
-        powerSlider.maxValue = maxPower;
-        ballList = new List<Rigidbody>();
-	}
-	
-	void Update () {
+    void Start() {
+        powerSlider.minValue = MIN_POWER;
+        powerSlider.maxValue = MAX_POWER;
+        ballReady = false;
+    }
+
+    void Update() {
         powerSlider.gameObject.SetActive(ballReady);
         powerSlider.value = power;
-        if (ballList.Count > 0) {
-            ballReady = true;
+        if (ballReady) {
             if (Input.GetKey(KeyCode.Space)) {
-                if (power < maxPower) {
-                    power += deltaPower * Time.deltaTime;
+                if (power < MAX_POWER) {
+                    power += DELTA_POWER * Time.deltaTime;
                 }
             }
             if (Input.GetKeyUp(KeyCode.Space)) {
-                foreach(Rigidbody rb in ballList) {
-                    rb.AddForce(power * Vector3.forward);
-                }
+                ball.AddForce(power * Vector3.forward);
             }
-        } else {
-            ballReady = false;
-            power = minPower;
         }
-	}
+        else {
+            power = MIN_POWER;
+        }
+    }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Ball")) {
-            ballList.Add(other.gameObject.GetComponent<Rigidbody>());
+            ball = other.gameObject.GetComponent<Rigidbody>();
+            ballReady = true;
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Ball")) {
-            ballList.Remove(other.gameObject.GetComponent<Rigidbody>());
-            power = minPower;
+            ball = null;
+            ballReady = false;
+            power = MIN_POWER;
         }
     }
 }

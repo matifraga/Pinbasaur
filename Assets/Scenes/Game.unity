@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 242610575}
   - component: {fileID: 242610574}
   m_Layer: 0
-  m_Name: RightBound (1)
+  m_Name: RightBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,9 +575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  deltaPower: 50
-  minPower: 0
-  maxPower: 100
   powerSlider: {fileID: 2052063298}
 --- !u!65 &340588572
 BoxCollider:
@@ -1883,6 +1880,11 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: b181d20c768210b4f8748036c53b4e9b,
         type: 2}
+    - target: {fileID: 54504420373636718, guid: 421f651ab45eb1c4cbd7492f7613cddc,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 421f651ab45eb1c4cbd7492f7613cddc, type: 2}
   m_IsPrefabParent: 0
@@ -2073,7 +2075,7 @@ GameObject:
   - component: {fileID: 1959176071}
   - component: {fileID: 1959176070}
   m_Layer: 0
-  m_Name: RightBound
+  m_Name: RightPlungerBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
