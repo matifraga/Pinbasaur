@@ -5,9 +5,9 @@ public class BallController : MonoBehaviour {
     private Rigidbody rb;
     private int lives;
     public int score;
-    public GameObject live1;
-    public GameObject live2;
-    public GameObject live3;
+    public GameObject life1;
+    public GameObject life2;
+    public GameObject life3;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -20,13 +20,13 @@ public class BallController : MonoBehaviour {
             lives--;
             switch (lives) {
                 case 2:
-                    live3.SetActive(false);
+                    life3.SetActive(false);
                     break;
                 case 1:
-                    live2.SetActive(false);
+                    life2.SetActive(false);
                     break;
                 case 0:
-                    live1.SetActive(false);
+                    life1.SetActive(false);
                     break;
             }
             transform.position = new Vector3(2.9f, 0f, 0.5f);

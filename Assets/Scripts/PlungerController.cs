@@ -18,8 +18,8 @@ public class PlungerController : MonoBehaviour {
     }
 
     void Update() {
-        powerSlider.gameObject.SetActive(ballReady);
         powerSlider.value = power;
+        powerSlider.gameObject.SetActive(ballReady);
         if (ballReady) {
             if (Input.GetKey(KeyCode.Space)) {
                 if (power < MAX_POWER) {
