@@ -20,7 +20,6 @@ public class PanelController : MonoBehaviour {
                 }
             }
         } else {
-            Time.timeScale = 0;
             deadPanel.SetActive(true);
         }
     }
