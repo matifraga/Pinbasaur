@@ -9,8 +9,10 @@ public class BumperController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         ScoreManager.instance.AddPoints(points);
-        foreach (ContactPoint cp in collision.contacts) {
-            cp.otherCollider.GetComponent<Rigidbody>().AddForce(-1 * cp.normal * bumperForce, ForceMode.Impulse);
-        }
+		if (bumperForce != 0) {
+			foreach (ContactPoint cp in collision.contacts) {
+				cp.otherCollider.GetComponent<Rigidbody> ().AddForce (-1 * cp.normal * bumperForce, ForceMode.Impulse);
+			}
+		}
     }
 }
