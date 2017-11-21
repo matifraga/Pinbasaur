@@ -6,7 +6,8 @@ public class FlipperController : MonoBehaviour {
     static float PRESSED_POSITION = 45f;
     static float HIT_POWER = 10000f;
     static float FLIPPER_DAMPER = 100f;
-    HingeJoint hinge;
+    
+	HingeJoint hinge;
     JointSpring spring;
     private ScoreManager manager;
 

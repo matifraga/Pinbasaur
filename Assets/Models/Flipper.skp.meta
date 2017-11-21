@@ -1,28 +1,44 @@
 fileFormatVersion: 2
-guid: 905ef1966ec994b078e69ab0ed5fefa6
-timeCreated: 1507694415
+guid: 096be2f0a94354fd18bf9f74d902c5b8
+timeCreated: 1511221111
 licenseType: Free
-ModelImporter:
+SketchUpImporter:
+  generateBackFace: 1
+  mergeCoplanarFaces: 0
+  selectedNodes: 00000000010000000200000003000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 804c8344cd6c8aecdc4df54b5a2964bf
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 409.80103, y: 834.1709, z: -409.4929}
+      lookAt: {x: 337.7114, y: 753.67487, z: -376.56323}
+      up: {x: -0.64816093, y: 0.7015903, z: 0.29607195}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Chris1
-    100004: Mesh1
-    100006: Mesh2
-    400000: //RootNode
-    400002: Chris1
-    400004: Mesh1
-    400006: Mesh2
-    2300000: Mesh1
-    2300002: Mesh2
-    3300000: Mesh1
-    3300002: Mesh2
-    4300000: Mesh1
-    4300002: Mesh2
+    100000: Chris
+    100002: //RootNode
+    400000: Chris
+    400002: //RootNode
+    2300000: Chris
+    2300002: //RootNode
+    3300000: Chris
+    3300002: //RootNode
+    4300000: Mesh Flipper
+    4300002: Mesh Chris
   materials:
-    importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    importMaterials: 0
+    materialName: 2
+    materialSearch: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -46,7 +62,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.0254
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -69,7 +85,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

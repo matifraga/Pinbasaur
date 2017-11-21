@@ -18,7 +18,7 @@ public class BallController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (transform.position.z < -13) {
+        if (transform.position.z < -15) {
             lives--;
             switch (lives) {
                 case 2:
@@ -34,7 +34,7 @@ public class BallController : MonoBehaviour {
                     manager.DeadPlayer();
                     break;
             }
-            transform.position = new Vector3(2.9f, 0f, 0.5f);
+            transform.position = new Vector3(4.5f, 0f, 0f);
             rb.velocity = Vector3.zero;
         }
     }
