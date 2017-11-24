@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager instance = null;
+
     private bool isAlive;
-    private int score = 0;
+	private int score = 0;
+	private int multiplier = 1;
+
+	private Multiplier x2;
+	private Multiplier x3;
+	private Multiplier x4;
 
     private void Awake() {
         isAlive = true;
-        if(instance == null) {
-            instance = this;
-        } else if(instance != this) {
-            Destroy(gameObject);
-        }
-        ResetScore();
+        
+		if (instance == null) {
+			instance = this;
+		}
+
+		FindMultipliers ();
+        ResetScore ();
     }
 
     public void AddPoints(int pointsToAdd) {
-        score += pointsToAdd;
-    }
-
-    public void TakePoints(int pointsToTake) {
-        if(score >= pointsToTake) {
-            score -= pointsToTake;
-        } else {
-            score = 0;
-        }
+		score += (pointsToAdd * multiplier);
     }
 
     public int GetScore() {
@@ -48,4 +48,60 @@ public class ScoreManager : MonoBehaviour {
         return isAlive;
     }
 
+	public void IncrementMultiplier() {
+		multiplier += 1;
+		HandleMultiplierLights ();
+	}
+
+	public void ResetMultiplier() {
+		multiplier = 1;
+		HandleMultiplierLights ();
+	}
+
+	private void FindMultipliers() {
+		x2 = GameObject.Find("2X").GetComponent<Multiplier>();
+		x3 = GameObject.Find("3X").GetComponent<Multiplier>();
+		x4 = GameObject.Find("4X").GetComponent<Multiplier>();
+	}
+
+	private void HandleMultiplierLights() {
+		switch (multiplier) {
+		case 1: 
+			{
+				x2.turnOff ();
+				x3.turnOff ();
+				x4.turnOff ();
+				break;
+			}
+		case 2: 
+			{
+				x2.turnOn ();
+				x3.turnOff ();
+				x4.turnOff ();
+				break;
+			}
+		case 3:
+			{
+				x2.turnOff ();
+				x3.turnOn ();
+				x4.turnOff ();
+				break;	
+			}
+		case 4:
+			{
+				x2.turnOff ();
+				x3.turnOff ();
+				x4.turnOn ();
+				break;
+			}
+		default: 
+			{
+				x2.turnOn ();
+				x3.turnOn ();
+				x4.turnOn ();
+				break;
+			}
+
+		}
+	}
 }
