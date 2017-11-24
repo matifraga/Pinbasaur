@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Multiplier : MonoBehaviour {
+public class FloorLight : MonoBehaviour {
 
 	public Sprite offSprite;
 	public Sprite onSprite;

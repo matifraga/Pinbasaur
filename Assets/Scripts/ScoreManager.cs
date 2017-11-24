@@ -9,9 +9,9 @@ public class ScoreManager : MonoBehaviour {
 	private int score = 0;
 	private int multiplier = 1;
 
-	private Multiplier x2;
-	private Multiplier x3;
-	private Multiplier x4;
+	private FloorLight x2;
+	private FloorLight x3;
+	private FloorLight x4;
 
     private void Awake() {
         isAlive = true;
@@ -59,9 +59,9 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	private void FindMultipliers() {
-		x2 = GameObject.Find("2X").GetComponent<Multiplier>();
-		x3 = GameObject.Find("3X").GetComponent<Multiplier>();
-		x4 = GameObject.Find("4X").GetComponent<Multiplier>();
+		x2 = GameObject.Find("2X").GetComponent<FloorLight>();
+		x3 = GameObject.Find("3X").GetComponent<FloorLight>();
+		x4 = GameObject.Find("4X").GetComponent<FloorLight>();
 	}
 
 	private void HandleMultiplierLights() {

@@ -30,6 +30,7 @@ public class BallController : MonoBehaviour {
 		lives--;
 		ScoreManager.instance.ResetMultiplier ();
 		CardsManager.Instance.ResetCards ();
+		LightSwitchManager.Instance.ResetBumperMultiplier ();
 
 		switch (lives) {
 			case 2:
