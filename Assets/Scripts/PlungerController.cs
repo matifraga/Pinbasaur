@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class PlungerController : MonoBehaviour {
 
     public float power;
-    static int DELTA_POWER = 50;
+    static int DELTA_POWER = 90;
     static float MIN_POWER = 0f;
-    static float MAX_POWER = 100f;
+    static float MAX_POWER = 90f;
     public Slider powerSlider;
     Rigidbody ball;
     bool ballReady;

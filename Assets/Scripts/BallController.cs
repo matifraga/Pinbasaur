@@ -2,6 +2,7 @@
 
 public class BallController : MonoBehaviour {
 
+    private ScoreManager manager;
     private Rigidbody rb;
     private int lives;
     public int score;
@@ -13,24 +14,38 @@ public class BallController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         lives = 3;
         score = 0;
+        manager = ScoreManager.instance;
     }
 
     void FixedUpdate() {
-        if (transform.position.z < -13) {
-            lives--;
-            switch (lives) {
-                case 2:
-                    life3.SetActive(false);
-                    break;
-                case 1:
-                    life2.SetActive(false);
-                    break;
-                case 0:
-                    life1.SetActive(false);
-                    break;
-            }
-            transform.position = new Vector3(2.9f, 0f, 0.5f);
+        if (transform.position.z < -15) {
+			LostLife ();
+            transform.position = new Vector3(4.5f, 0f, 0f);
             rb.velocity = Vector3.zero;
         }
     }
+
+	private void LostLife() {
+
+		lives--;
+		ScoreManager.instance.ResetMultiplier ();
+		CardsManager.Instance.ResetCards ();
+		LightSwitchManager.Instance.ResetBumperMultiplier ();
+
+		switch (lives) {
+			case 2:
+				life3.SetActive(false);
+				break;
+			case 1:
+				life2.SetActive(false);
+				break;
+			case 0:
+				life1.SetActive(false);
+				break;
+			default:
+				manager.DeadPlayer();
+				break;
+		}
+			
+	}
 }

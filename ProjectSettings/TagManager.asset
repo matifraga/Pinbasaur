@@ -9,6 +9,7 @@ TagManager:
   - Win
   - Way1
   - Ball
+  - Toad
   layers:
   - Default
   - TransparentFX
